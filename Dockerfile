@@ -1,7 +1,7 @@
-FROM ubuntu:22.04
+FROM ubuntu:latest
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends apache2 && \
-    rm -rf /var/lib/apt/lists/*
+apt-get install -y apache2 && \
+apt-get clean
+EXPOSE 80
 CMD ["apachectl", "-D", "FOREGROUND"]
-
